@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase;
 import com.example.live.User;
 import com.example.live.UserDao;
 
-@Database(entities = {Task.class, User.class}, version = 2)
+@Database(entities = {Task.class, User.class}, version = 5) // ← Version incrémentée
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
@@ -20,7 +20,7 @@ public abstract class AppDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class, "todo_database")
                     .allowMainThreadQueries()
-                    .fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigration() // Supprime la base si version change
                     .build();
         }
         return instance;

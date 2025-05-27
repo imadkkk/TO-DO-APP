@@ -11,7 +11,13 @@ public class Task {
 
     public String title;
 
-    public Task(String title) {
+    public int userId; // Lier la tâche à un utilisateur
+
+    public boolean isCompleted; // ← Champ ajouté
+
+    public Task(String title, int userId) {
         this.title = title;
+        this.userId = userId;
+        this.isCompleted = false; // Par défaut, la tâche n'est pas terminée
     }
 }
